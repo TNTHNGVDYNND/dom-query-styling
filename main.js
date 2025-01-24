@@ -46,8 +46,13 @@ menuCat.forEach((category) => {
 });
 
 const footer = document.querySelector("footer");
-footer.style.float = "right";
+footer.style.float = "center";
 footer.style.marginTop = "10px";
+footer.style.padding = "10px";
+footer.style.backgroundColor = "black";
+footer.style.display = "flex";
+footer.style.justifyContent = "center";
+footer.style.alignItems = "center";
 // TVATDCI
 // Adding new items dynamically
 const startersList = document.querySelector(".menu-category"); // Select first menu category (Starters)
@@ -70,6 +75,7 @@ sections.forEach((section, index) => {
 const btnCheck = document.querySelector(".btn-check");
 const inputGuess = document.querySelector(".guess");
 
+// TVATDCI
 // Add styling to the button
 btnCheck.style.backgroundColor = "#FF0000";
 btnCheck.style.color = "#FFFFFF";
@@ -77,6 +83,15 @@ btnCheck.style.padding = "10px 20px";
 btnCheck.style.border = "none";
 btnCheck.style.borderRadius = "5px";
 btnCheck.style.cursor = "pointer";
+
+// TVATDCI
+// Add styling to the input field
+inputGuess.style.margin = "15px 0";
+inputGuess.style.padding = "10px";
+inputGuess.style.display = "block";
+inputGuess.style.width = "25%";
+inputGuess.style.borderRadius = "5px";
+inputGuess.style.textAlign = "center";
 
 btnCheck.addEventListener("click", () => {
   alert(`Your number: ${inputGuess.value}`); // Display entered number in alert
