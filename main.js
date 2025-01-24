@@ -71,6 +71,12 @@ const btnCheck = document.querySelector(".btn-check");
 const inputGuess = document.querySelector(".guess");
 
 // Add styling to the button
+btnCheck.style.backgroundColor = "#FF0000";
+btnCheck.style.color = "#FFFFFF";
+btnCheck.style.padding = "10px 20px";
+btnCheck.style.border = "none";
+btnCheck.style.borderRadius = "5px";
+btnCheck.style.cursor = "pointer";
 
 btnCheck.addEventListener("click", () => {
   alert(`Your number: ${inputGuess.value}`); // Display entered number in alert
