@@ -88,21 +88,24 @@ const footerEl = $(config.selectors.footer).element;
 toggleClass(footerEl, 'footer-active');
 
 // ============================================
-// v2.2: ENTRANCE ANIMATIONS
+// v2.2: ENTRANCE ANIMATIONS (CLS Optimized)
 // ============================================
 
-// Staggered entrance animation for food items on page load
+// Note: Initial staggered animations disabled to prevent Cumulative Layout Shift (CLS)
+// Use CSS animations on hover instead for smooth, non-layout-shifting effects
+// Uncomment below if CLS is acceptable trade-off for entrance animations
+/*
 window.addEventListener('DOMContentLoaded', () => {
     const foodItems = $$(config.selectors.foodItems);
     foodItems.stagger(config.animations.staggerDuration, config.animations.staggerOffset);
     
-    // Slide in sections with delay
     $$(config.selectors.sections).forEach((section, index) => {
         setTimeout(() => {
             $(section).slideIn(config.animations.slideIn);
         }, index * 150);
     });
 });
+*/
 
 // ============================================
 // v2.3: ACCESSIBILITY - KEYBOARD NAVIGATION

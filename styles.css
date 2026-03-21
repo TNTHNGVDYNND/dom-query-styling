@@ -38,6 +38,10 @@
     margin-top: 1rem;
     list-style-type: none;
     transition: all 0.3s ease-in-out;
+    /* Pre-allocate space to prevent CLS */
+    min-height: 2rem;
+    will-change: opacity, color;
+    contain: layout style paint;
 }
 
 .food-item:hover {
@@ -100,14 +104,33 @@
     border: 2px solid #DC2743;
 }
 
-/* v2.1: Search & Filter Styles */
+/* v2.1: Search & Filter Styles - CLS Optimized */
 .hidden {
-    display: none !important;
+    /* Use visibility + opacity for smooth filtering without reflow */
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    margin: 0;
+    padding: 0;
+}
+
+.hidden.no-results {
+    /* Preserve space for no-results message */
+    visibility: hidden;
+    opacity: 0;
+    height: auto;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 .search-match {
     background-color: rgba(220, 39, 67, 0.1);
     font-weight: 500;
+    will-change: background-color;
 }
 
 .no-results {
@@ -116,6 +139,12 @@
     color: #888;
     font-style: italic;
     font-size: 1.2rem;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    overflow: visible;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    margin-bottom: 20px;
 }
 
 .input-styled {
@@ -131,7 +160,8 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        /* Use transform instead of margin/padding to avoid layout shift */
+        transform: translateY(0);
     }
     to {
         opacity: 1;
@@ -169,6 +199,8 @@
 
 .section-padded {
     transition: transform 0.3s ease, opacity 0.3s ease;
+    will-change: transform, opacity;
+    contain: layout style paint;
 }
 
 .btn-primary {

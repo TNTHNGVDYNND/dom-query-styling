@@ -132,9 +132,16 @@ export const setupSearchFilter = (input, itemSelector = '.food-item') => {
         const noResultsEl = document.querySelector(config.selectors.noResults);
         if (noResultsEl) {
             if (matchCount === 0 && searchTerm.length > 0) {
+                // Use visibility toggle instead of display to prevent CLS
                 noResultsEl.classList.remove('hidden');
+                noResultsEl.style.visibility = 'visible';
+                noResultsEl.style.opacity = '1';
+                noResultsEl.style.height = 'auto';
             } else {
                 noResultsEl.classList.add('hidden');
+                noResultsEl.style.visibility = 'hidden';
+                noResultsEl.style.opacity = '0';
+                noResultsEl.style.height = '0';
             }
         }
     });
