@@ -1,6 +1,6 @@
 /**
  * @fileoverview Main Entry Point for DOM-Query Styling project.
- * v2.5 - Error Handling & Production Robustness
+ * v2.6 - Portfolio Documentation & Deployment
  * 
  * @module main
  */
