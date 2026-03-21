@@ -1,70 +1,73 @@
-// v1.3 - Helper Functions (DRY Principle)
+// v1.4 - DOM Class (OOP)
 
-// ============================================
-// UTILITY FUNCTIONS
-// ============================================
+class DOM {
+    constructor(selector) {
+        this.element = document.querySelector(selector);
+        this.elements = document.querySelectorAll(selector);
+    }
 
-const $ = (selector) => document.querySelector(selector);
+    addClass(...classNames) {
+        if (this.element) this.element.classList.add(...classNames);
+        return this;
+    }
 
-const $$ = (selector) => document.querySelectorAll(selector);
+    addClassAll(...classNames) {
+        this.elements.forEach(el => el.classList.add(...classNames));
+        return this;
+    }
 
-const applyStyles = (elements, classNames) => {
-    const els = typeof elements === 'string' ? $$(elements) : elements;
-    const classes = typeof classNames === 'string' ? [classNames] : classNames;
-    els.forEach(el => classes.forEach(cls => el.classList.add(cls)));
-};
+    css(styles) {
+        if (this.element) Object.assign(this.element.style, styles);
+        return this;
+    }
 
-const createElement = (tag, classNames = [], text = '') => {
-    const el = document.createElement(tag);
-    const classes = typeof classNames === 'string' ? [classNames] : classNames;
-    classes.forEach(cls => el.classList.add(cls));
-    el.textContent = text;
-    return el;
-};
+    on(event, handler) {
+        if (this.element) this.element.addEventListener(event, handler);
+        return this;
+    }
 
-const addHoverEffect = (element, enterCallback, leaveCallback) => {
-    element.addEventListener('mouseenter', enterCallback);
-    element.addEventListener('mouseleave', leaveCallback);
-};
+    onAll(event, handler) {
+        this.elements.forEach(el => el.addEventListener(event, handler));
+        return this;
+    }
+
+    append(child) {
+        if (this.element) this.element.appendChild(child);
+        return this;
+    }
+
+    static create(tag, classNames = [], text = '') {
+        const el = document.createElement(tag);
+        const classes = typeof classNames === 'string' ? [classNames] : classNames;
+        classes.forEach(cls => el.classList.add(cls));
+        el.textContent = text;
+        return el;
+    }
+}
+
+const $ = (selector) => new DOM(selector);
 
 // ============================================
 // STYLING
 // ============================================
 
-// Body
-document.body.classList.add('body-dark');
-
-// Title
-$('h1').classList.add('title-hero');
-
-// Category titles
-applyStyles('.category', 'category-title');
-
-// Main layout
-$('main').classList.add('menu-layout');
-
-// Menu category cards
-applyStyles('.menu-category', 'menu-category-card');
-
-// Food items
-applyStyles('.food-item', 'food-item');
-
-// Footer
-$('footer').classList.add('footer-card');
-
-// Input field
-$('.guess').classList.add('input-styled');
+$('body').addClass('body-dark');
+$('h1').addClass('title-hero');
+$('.category').addClassAll('category-title');
+$('main').addClass('menu-layout');
+$('.menu-category').addClassAll('menu-category-card');
+$('.food-item').addClassAll('food-item');
+$('footer').addClass('footer-card');
+$('.guess').addClass('input-styled');
 
 // Button
 const btnCheck = $('.btn-check');
-btnCheck.classList.add('btn-primary');
-addHoverEffect(btnCheck,
-    () => btnCheck.style.backgroundColor = '#FF0000',
-    () => btnCheck.style.backgroundColor = '#DC2743'
-);
+btnCheck.addClass('btn-primary');
+btnCheck.on('mouseenter', () => btnCheck.css({ backgroundColor: '#FF0000' }));
+btnCheck.on('mouseleave', () => btnCheck.css({ backgroundColor: '#DC2743' }));
 
 // Sections
-$$('section').forEach((section, index) => {
+$('section').elements.forEach((section, index) => {
     section.classList.add('section-padded');
     if (index === 0) section.classList.add('section-starters');
     if (index === 1) section.classList.add('section-mains');
@@ -75,18 +78,15 @@ $$('section').forEach((section, index) => {
 // DYNAMIC CONTENT
 // ============================================
 
-const startersList = $('.menu-category');
-const newItem = createElement('li', 'food-item', 'Item-4');
-startersList.appendChild(newItem);
+$('.menu-category').append(DOM.create('li', 'food-item', 'Item-4'));
 
 // ============================================
 // EVENT HANDLERS
 // ============================================
 
-btnCheck.addEventListener('click', () => {
-    const inputGuess = $('.guess');
-    alert(`Your number: ${inputGuess.value}`);
-    inputGuess.value = '';
+btnCheck.on('click', () => {
+    alert(`Your number: ${$('.guess').element.value}`);
+    $('.guess').element.value = '';
 });
 
 // ============================================
@@ -94,4 +94,4 @@ btnCheck.addEventListener('click', () => {
 // ============================================
 
 document.title = 'Welcome to the Updated Menu!';
-$('.title').textContent = 'Welcome to the Updated Menu!';
+$('.title').element.textContent = 'Welcome to the Updated Menu!';

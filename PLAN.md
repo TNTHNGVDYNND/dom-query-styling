@@ -62,7 +62,7 @@ const addHoverEffect = (element, enterCallback, leaveCallback) => { ... };
 
 ---
 
-## v1.4: DOM Class (OOP)
+## v1.4: DOM Class (OOP) ✅
 
 ### Learning Goals
 - JavaScript Classes
@@ -70,19 +70,29 @@ const addHoverEffect = (element, enterCallback, leaveCallback) => { ... };
 - Method chaining
 - `this` keyword
 
-### Planned Changes
-New file: `dom.js`
+### Implemented Class
 ```javascript
 class DOM {
-    constructor(selector) { ... }
-    addClass(...classNames) { return this; }
-    addClassAll(...classNames) { return this; }
-    css(styles) { return this; }
-    on(event, handler) { return this; }
-    onAll(event, handler) { return this; }
+    constructor(selector) {
+        this.element = document.querySelector(selector);
+        this.elements = document.querySelectorAll(selector);
+    }
+    addClass(...classNames) { return this; }      // Chain: $.addClass()
+    addClassAll(...classNames) { return this; }    // Chain: $.addClassAll()
+    css(styles) { return this; }                  // Chain: $.css({})
+    on(event, handler) { return this; }           // Chain: $.on('click', fn)
+    onAll(event, handler) { return this; }       // Chain: $.onAll()
+    append(child) { return this; }               // Chain: $.append()
+    static create(tag, classNames, text) { }     // Static: DOM.create()
 }
 const $ = (selector) => new DOM(selector);
 ```
+
+### Benefits
+- Method chaining for fluent API
+- Encapsulated DOM operations
+- Single source of truth for DOM utilities
+- `.element` for direct access, `.elements` for NodeList
 
 ---
 
