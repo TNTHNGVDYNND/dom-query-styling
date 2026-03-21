@@ -6,6 +6,20 @@ A beginner-friendly project for learning how to manipulate web pages with JavaSc
 
 ---
 
+## About
+
+**DOM Query Styling** is a learning-focused portfolio project demonstrating professional JavaScript development practices. Build a dynamic restaurant menu while mastering DOM manipulation, CSS class management, OOP patterns, ES6 modules, and performance optimization—all with **vanilla JavaScript and zero frameworks**.
+
+The project evolves through 6+ versions, starting from inline styles and progressing to a clean, modular architecture with:
+- ✅ **Configuration-driven design** (centralized settings)
+- ✅ **Method chaining API** (fluent, chainable methods)
+- ✅ **Production-grade optimization** (SEO 100, CLS 0.05, WCAG 2.1 AA)
+- ✅ **Real-world features** (search filtering, animations, responsive design)
+
+Perfect for portfolio building or learning JavaScript fundamentals with professional patterns.
+
+---
+
 ## What You'll Build
 
 A dynamic restaurant menu where food items appear styled, change color on hover, and respond to clicks. It starts simple and evolves into a well-organized, professional codebase.
@@ -14,20 +28,21 @@ A dynamic restaurant menu where food items appear styled, change color on hover,
 
 ## What You'll Learn
 
-| Concept | What It Means |
-|---------|---------------|
-| **DOM** | The "tree structure" of your HTML - a way to access and change web page elements |
-| **CSS Classes** | Reusable style definitions that can be added/removed from elements |
-| **Functions** | Reusable blocks of code that perform specific tasks |
-| **OOP** | Organizing code into "objects" with properties and methods |
-| **ES Modules** | Separate files that can share code with each other |
-| **Method Chaining** | Writing code like `$.addClass().on().css()` - methods that follow each other |
+| Concept             | What It Means                                                                    |
+| ------------------- | -------------------------------------------------------------------------------- |
+| **DOM**             | The "tree structure" of your HTML - a way to access and change web page elements |
+| **CSS Classes**     | Reusable style definitions that can be added/removed from elements               |
+| **Functions**       | Reusable blocks of code that perform specific tasks                              |
+| **OOP**             | Organizing code into "objects" with properties and methods                       |
+| **ES Modules**      | Separate files that can share code with each other                               |
+| **Method Chaining** | Writing code like `$.addClass().on().css()` - methods that follow each other     |
 
 ---
 
 ## Features
 
 ### Core Functionality
+
 - **Dynamic Menu Rendering** - Menu items rendered from JavaScript
 - **Real-time Search** - Filter menu items as you type with optimized responsiveness
 - **Interactive Hover Effects** - Visual feedback on user interaction (no layout shift)
@@ -35,6 +50,7 @@ A dynamic restaurant menu where food items appear styled, change color on hover,
 - **Responsive Design** - Mobile-first, optimized for all screen sizes
 
 ### Performance & Quality Features
+
 - **SEO Optimized** - Meta descriptions, Open Graph tags, semantic HTML (Score: 100)
 - **Zero CLS** - Cumulative Layout Shift optimized (0.05 - excellent)
 - **Accessibility First** - WCAG 2.1 Level AA compliant
@@ -42,22 +58,24 @@ A dynamic restaurant menu where food items appear styled, change color on hover,
 - **Production Ready** - Error handling, validation, debug mode
 
 ### User Interactions
-| Feature | Description |
-|---------|-------------|
-| Search Filtering | Type in the search box to filter menu items instantly |
-| Hover Effects | Food items change color on mouse hover |
-| Button Click | Click the button to display entered values |
-| Keyboard Navigation | Full keyboard support with visible focus indicators |
-| Touch Support | Mobile-friendly touch targets and interactions |
+
+| Feature             | Description                                           |
+| ------------------- | ----------------------------------------------------- |
+| Search Filtering    | Type in the search box to filter menu items instantly |
+| Hover Effects       | Food items change color on mouse hover                |
+| Button Click        | Click the button to display entered values            |
+| Keyboard Navigation | Full keyboard support with visible focus indicators   |
+| Touch Support       | Mobile-friendly touch targets and interactions        |
 
 ### Technical Features
-| Feature | Description |
-|---------|-------------|
-| Error Handling | Graceful handling of missing DOM elements |
-| Input Validation | User input validation with visual feedback |
-| Debug Mode | Development mode with console warnings |
-| Configuration-Driven | Centralized settings in config.js |
-| JSDoc Documentation | Well-documented codebase |
+
+| Feature              | Description                                |
+| -------------------- | ------------------------------------------ |
+| Error Handling       | Graceful handling of missing DOM elements  |
+| Input Validation     | User input validation with visual feedback |
+| Debug Mode           | Development mode with console warnings     |
+| Configuration-Driven | Centralized settings in config.js          |
+| JSDoc Documentation  | Well-documented codebase                   |
 
 ---
 
@@ -66,12 +84,14 @@ A dynamic restaurant menu where food items appear styled, change color on hover,
 This project implements **WCAG 2.1 Level AA** accessibility standards.
 
 ### Keyboard Accessibility
+
 - Full keyboard navigation support
 - Visible focus indicators (3px yellow outline)
 - Skip link to main content
 - Tab navigation through all interactive elements
 
 ### Screen Reader Support
+
 - Semantic HTML structure (`<header>`, `<main>`, `<footer>`)
 - ARIA labels and descriptions
 - `aria-labelledby` for section headings
@@ -79,6 +99,7 @@ This project implements **WCAG 2.1 Level AA** accessibility standards.
 - Hidden labels for visual-only content
 
 ### Visual Accessibility
+
 - High contrast focus indicators
 - Minimum touch target size (44px)
 - Color not used as sole indicator
@@ -89,23 +110,26 @@ This project implements **WCAG 2.1 Level AA** accessibility standards.
 ## Performance & SEO
 
 ### Lighthouse Metrics (Mobile)
-| Metric | Score | Status |
-|--------|-------|--------|
-| **Performance** | 85+ | ✅ Excellent |
-| **Accessibility** | 95+ | ✅ Excellent |
-| **Best Practices** | 95+ | ✅ Excellent |
-| **SEO** | 100 | 🏆 Perfect |
-| **Cumulative Layout Shift** | 0.05 | ✅ Good (optimized from 0.329) |
+
+| Metric                      | Score | Status                         |
+| --------------------------- | ----- | ------------------------------ |
+| **Performance**             | 85+   | ✅ Excellent                   |
+| **Accessibility**           | 95+   | ✅ Excellent                   |
+| **Best Practices**          | 95+   | ✅ Excellent                   |
+| **SEO**                     | 100   | 🏆 Perfect                     |
+| **Cumulative Layout Shift** | 0.05  | ✅ Good (optimized from 0.329) |
 
 ### Page Metrics
-| Metric | Value |
-|--------|-------|
-| **Page Size** | ~15KB (HTML + CSS + JS) |
-| **Dependencies** | None (vanilla JS only) |
-| **Load Time** | < 100ms |
-| **Rendering** | Immediate (no framework overhead) |
+
+| Metric           | Value                             |
+| ---------------- | --------------------------------- |
+| **Page Size**    | ~15KB (HTML + CSS + JS)           |
+| **Dependencies** | None (vanilla JS only)            |
+| **Load Time**    | < 100ms                           |
+| **Rendering**    | Immediate (no framework overhead) |
 
 ### Optimization Techniques
+
 - Minimal DOM queries with caching
 - CSS transitions (GPU-accelerated)
 - Efficient event delegation
@@ -118,7 +142,8 @@ This project implements **WCAG 2.1 Level AA** accessibility standards.
 
 ## 🎯 Live Demo
 
-**View the interactive menu:** 
+**View the interactive menu:**
+
 - GitHub Pages: https://TNTHNGVDYNND.github.io/dom-query-styling/
 - Test on mobile to see responsive design, animations, and keyboard navigation
 
@@ -126,24 +151,26 @@ This project implements **WCAG 2.1 Level AA** accessibility standards.
 
 ## ✨ Project Status
 
-| Aspect | Status | Details |
-|--------|--------|---------|
-| **Functionality** | ✅ Complete | All features implemented and working |
-| **Performance** | ✅ Perfect | SEO 100, CLS 0.05 (optimized) |
-| **Accessibility** | ✅ WCAG 2.1 AA | Full keyboard nav, screen reader support, focus indicators |
-| **Design** | ✅ Responsive | Mobile-first, 3 breakpoints, touch-friendly |
-| **Documentation** | ✅ Complete | JSDoc on all functions, ARCHITECTURE.md, PLAN.md |
-| **Code Quality** | ✅ High | No syntax errors, error handling, clean architecture |
-| **Production Ready** | ✅ Yes | All checks pass, optimized, deployed |
+| Aspect               | Status         | Details                                                    |
+| -------------------- | -------------- | ---------------------------------------------------------- |
+| **Functionality**    | ✅ Complete    | All features implemented and working                       |
+| **Performance**      | ✅ Perfect     | SEO 100, CLS 0.05 (optimized)                              |
+| **Accessibility**    | ✅ WCAG 2.1 AA | Full keyboard nav, screen reader support, focus indicators |
+| **Design**           | ✅ Responsive  | Mobile-first, 3 breakpoints, touch-friendly                |
+| **Documentation**    | ✅ Complete    | JSDoc on all functions, ARCHITECTURE.md, PLAN.md           |
+| **Code Quality**     | ✅ High        | No syntax errors, error handling, clean architecture       |
+| **Production Ready** | ✅ Yes         | All checks pass, optimized, deployed                       |
 
 ---
 
 1. **Clone the repo:**
+
    ```bash
    git clone <repo-url>
    ```
 
 2. **Open the project:**
+
    ```bash
    # Open index.html in your browser
    # Or use a local server:
@@ -216,49 +243,60 @@ No frameworks or libraries - just pure vanilla JavaScript!
 This project evolves through versions, each teaching a new concept. See the `v1` branch to view the original starting point - 116 lines of JavaScript with all inline styles.
 
 ### v1.1 - Starting Point
+
 Everything in one file with inline styles. See branch `v1` to explore the original code.
 
 ### v1.2 - CSS Classes
+
 Move styles to CSS classes. Learn `.classList.add()`.
 
 ```javascript
 // Before (inline styles)
-element.style.backgroundColor = 'red';
+element.style.backgroundColor = "red";
 
 // After (CSS classes)
-element.classList.add('btn-primary');
+element.classList.add("btn-primary");
 ```
 
 ### v1.3 - Helper Functions
+
 Create shortcuts to avoid repetition.
 
 ```javascript
 // Before - repeating querySelector
-document.querySelector('.menu').classList.add('active');
-document.querySelector('.menu').style.color = 'red';
+document.querySelector(".menu").classList.add("active");
+document.querySelector(".menu").style.color = "red";
 
 // After - one helper for everything
 const $ = (selector) => document.querySelector(selector);
-$('.menu').addClass('active').css({ color: 'red' });
+$(".menu").addClass("active").css({ color: "red" });
 ```
 
 ### v1.4 - DOM Class
+
 Organize helpers into a reusable class with method chaining.
 
 ```javascript
 class DOM {
-    addClass(...names) { /* ... */ return this; }
-    css(styles) { /* ... */ return this; }
-    on(event, handler) { /* ... */ return this; }
+  addClass(...names) {
+    /* ... */ return this;
+  }
+  css(styles) {
+    /* ... */ return this;
+  }
+  on(event, handler) {
+    /* ... */ return this;
+  }
 }
 
 const $ = (selector) => new DOM(selector);
 
 // Chain methods together
-$('.btn').addClass('primary').on('click', handleClick);
+$(".btn").addClass("primary").on("click", handleClick);
 ```
 
 ### v1.5 - ES Modules
+
 Split code into separate files by purpose.
 
 ```
@@ -271,18 +309,20 @@ src/
 ```
 
 ### v1.6 - Query & Style Utilities
+
 Add `$$` for selecting multiple elements and utility functions.
 
 ```javascript
 // $ finds the first match
-const title = $('.title');        // Returns one element
+const title = $(".title"); // Returns one element
 
 // $$ finds ALL matches
-const items = $$('.food-item');  // Returns a NodeList
-items.forEach(item => item.textContent = 'New Item');
+const items = $$(".food-item"); // Returns a NodeList
+items.forEach((item) => (item.textContent = "New Item"));
 ```
 
 ### v2.0 - Polish & Patterns
+
 Add configuration, error handling, and documentation.
 
 ---
@@ -312,8 +352,8 @@ A shorthand for `document.querySelector()` - it's just a shortcut:
 
 ```javascript
 // These do the exact same thing:
-const el = document.querySelector('.menu');
-const el = $('.menu');
+const el = document.querySelector(".menu");
+const el = $(".menu");
 ```
 
 ### What is `$$`?
@@ -322,10 +362,10 @@ A shorthand for `document.querySelectorAll()` - finds ALL matching elements:
 
 ```javascript
 // Finds first .item (single element)
-$('.item')
+$(".item");
 
 // Finds ALL .item (NodeList of elements)
-$$('.item')
+$$(".item");
 ```
 
 ### What is Method Chaining?
@@ -334,12 +374,34 @@ Calling multiple methods in one line. Each method returns `this`:
 
 ```javascript
 // Without chaining - 3 lines
-$('.btn').addClass('primary');
-$('.btn').css({ color: 'white' });
-$('.btn').on('click', handleClick);
+$(".btn").addClass("primary");
+$(".btn").css({ color: "white" });
+$(".btn").on("click", handleClick);
+
+// With chaining - 1 line
+$(".btn").addClass("primary").css({ color: "white" }).on("click", handleClick);
+```
+
+---
+
+## For Developers
+
+| Resource                             | Description                                           |
+| ------------------------------------ | ----------------------------------------------------- |
+| [PLAN.md](./PLAN.md)                 | Complete technical roadmap and implementation details |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | Design decisions, tradeoffs, and patterns             |
+
+## Branches
+
+| Branch | Description                                                 |
+| ------ | ----------------------------------------------------------- |
+| `main` | Current version (v2.6) - fully refactored with all features |
+| `v1`   | Original starting point - single file with inline styles    |
+| `v1.4` | DOM Class (OOP) version                                     |
 
 // With chaining - 1 line
 $('.btn').addClass('primary').css({ color: 'white' }).on('click', handleClick);
+
 ```
 
 ---
@@ -364,3 +426,4 @@ $('.btn').addClass('primary').css({ color: 'white' }).on('click', handleClick);
 ## License
 
 MIT License - Feel free to use this project for learning purposes.
+```
