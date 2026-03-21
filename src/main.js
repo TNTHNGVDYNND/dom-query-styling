@@ -1,6 +1,6 @@
 /**
  * @fileoverview Main Entry Point for DOM-Query Styling project.
- * v2.0 - Polish & Patterns: Configuration-driven architecture.
+ * v2.6 - Portfolio Documentation & Deployment
  * 
  * @module main
  */
@@ -8,7 +8,7 @@
 import $, { DOM, $$ } from './dom.js';
 import * as styles from './styles.js';
 import { applyStyles, toggleClass } from './styles.js';
-import { setupButtonHover, setupButtonClick } from './events.js';
+import { setupButtonHover, setupButtonClick, setupSearchFilter } from './events.js';
 import { newMenuItem, pageTitle } from './data.js';
 import { config } from './config.js';
 
@@ -53,6 +53,18 @@ $(newMenuItem.parentSelector).append(
 setupButtonClick(btnCheck);
 
 // ============================================
+// v2.1: SEARCH & FILTER
+// ============================================
+
+const searchInput = $(config.selectors.input);
+setupSearchFilter(searchInput);
+
+// Create "no results" message element
+const noResultsMsg = DOM.create('p', 'no-results', 'No items match your search.');
+noResultsMsg.classList.add('hidden');
+$('main').element.appendChild(noResultsMsg);
+
+// ============================================
 // DYNAMIC UPDATES
 // ============================================
 
@@ -60,7 +72,7 @@ document.title = pageTitle;
 $('.title').element.textContent = pageTitle;
 
 // ============================================
-// v1.6: DEMONSTRATE NEW UTILITIES
+// v2.1: UTILITY DEMONSTRATION
 // ============================================
 
 // $$ query shorthand - returns raw NodeList
@@ -74,3 +86,36 @@ applyStyles($$(config.selectors.sections), { transition: 'transform 0.3s ease' }
 // toggleClass - class toggling utility
 const footerEl = $(config.selectors.footer).element;
 toggleClass(footerEl, 'footer-active');
+
+// ============================================
+// v2.2: ENTRANCE ANIMATIONS
+// ============================================
+
+// Staggered entrance animation for food items on page load
+window.addEventListener('DOMContentLoaded', () => {
+    const foodItems = $$(config.selectors.foodItems);
+    foodItems.stagger(config.animations.staggerDuration, config.animations.staggerOffset);
+    
+    // Slide in sections with delay
+    $$(config.selectors.sections).forEach((section, index) => {
+        setTimeout(() => {
+            $(section).slideIn(config.animations.slideIn);
+        }, index * 150);
+    });
+});
+
+// ============================================
+// v2.3: ACCESSIBILITY - KEYBOARD NAVIGATION
+// ============================================
+
+// Ensure food items are keyboard accessible
+$$(config.selectors.foodItems).forEach(item => {
+    item.setAttribute('tabindex', '0');
+    
+    item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            item.click();
+        }
+    });
+});

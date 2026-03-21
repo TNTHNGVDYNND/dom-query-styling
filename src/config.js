@@ -35,17 +35,43 @@ export const config = {
         body: 'body',
         title: 'h1',
         main: 'main',
+        mainContent: '#main-content',
         sections: 'section',
         footer: 'footer',
         foodItems: '.food-item',
         categories: '.category',
         menuCategories: '.menu-category',
         button: '.btn-check',
-        input: '.guess'
+        input: '#search-input',
+        noResults: '.no-results'
     },
     events: {
         button: ['mouseenter', 'mouseleave', 'click'],
-        foodItem: ['mouseenter', 'mouseleave']
+        foodItem: ['mouseenter', 'mouseleave'],
+        search: ['input', 'clear']
+    },
+    search: {
+        placeholder: 'Search menu items...',
+        minLength: 0,
+        maxLength: 50,
+        highlightClass: 'search-match'
+    },
+    validation: {
+        inputMaxLength: 50,
+        showErrors: true
+    },
+    animations: {
+        fadeIn: 300,
+        fadeOut: 300,
+        slideIn: 300,
+        staggerDuration: 300,
+        staggerOffset: 50
+    },
+    responsive: {
+        mobile: 375,
+        tablet: 768,
+        desktop: 1024,
+        large: 1440
     }
 };
 
