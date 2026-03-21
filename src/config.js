@@ -53,7 +53,12 @@ export const config = {
     search: {
         placeholder: 'Search menu items...',
         minLength: 0,
+        maxLength: 50,
         highlightClass: 'search-match'
+    },
+    validation: {
+        inputMaxLength: 50,
+        showErrors: true
     },
     animations: {
         fadeIn: 300,

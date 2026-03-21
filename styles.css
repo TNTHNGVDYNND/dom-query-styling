@@ -416,3 +416,21 @@ body {
         height: auto;
     }
 }
+
+/* v2.5: Error Handling & Validation Styles */
+
+.error {
+    color: #FF4444;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.invalid-input {
+    border-color: #FF4444 !important;
+    background-color: rgba(255, 68, 68, 0.05);
+}
+
+.invalid-input:focus {
+    border-color: #FF4444;
+    box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.2);
+}

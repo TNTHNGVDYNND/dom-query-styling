@@ -1,6 +1,7 @@
 /**
  * @fileoverview DOM Utility Class for DOM-Query Styling project.
  * Provides a fluent API for DOM manipulation with method chaining.
+ * Includes enhanced error handling for production robustness.
  * 
  * @module dom
  */
@@ -20,6 +21,7 @@ import { config, debug } from './config.js';
 
 /**
  * DOM utility class providing chainable DOM manipulation methods.
+ * Enhanced with error handling and graceful degradation.
  * @class
  */
 export class DOM {
@@ -28,12 +30,39 @@ export class DOM {
      * @param {string} selector - CSS selector for querySelector
      */
     constructor(selector) {
+        if (typeof selector !== 'string') {
+            debug(`Invalid selector type: expected string, got ${typeof selector}`);
+            this.element = null;
+            this.elements = [];
+            return;
+        }
+        
         this.element = document.querySelector(selector);
         this.elements = document.querySelectorAll(selector);
         
         if (!this.element && config.app.debug) {
             debug(`No element found for selector: ${selector}`);
         }
+    }
+    
+    /**
+     * Checks if the DOM instance has a valid element.
+     * @returns {boolean} True if element exists
+     */
+    exists() {
+        return this.element !== null;
+    }
+    
+    /**
+     * Gets the element or throws a helpful error.
+     * @returns {Element} The DOM element
+     * @throws {Error} If element is null
+     */
+    getOrThrow() {
+        if (!this.element) {
+            throw new Error('DOM: Cannot get element - selector returned null');
+        }
+        return this.element;
     }
 
     /**
@@ -42,10 +71,18 @@ export class DOM {
      * @returns {DOM} Returns this for method chaining
      */
     addClass(...classNames) {
-        if (this.element) {
-            this.element.classList.add(...classNames);
-        } else if (config.app.debug) {
+        if (!this.element) {
             debug(`Cannot add class: no element selected`);
+            return this;
+        }
+        if (classNames.length === 0) {
+            debug(`Cannot add class: no class names provided`);
+            return this;
+        }
+        try {
+            this.element.classList.add(...classNames);
+        } catch (e) {
+            debug(`Error adding class: ${e.message}`);
         }
         return this;
     }
@@ -56,10 +93,18 @@ export class DOM {
      * @returns {DOM} Returns this for method chaining
      */
     addClassAll(...classNames) {
-        if (this.elements.length > 0) {
-            this.elements.forEach(el => el.classList.add(...classNames));
-        } else if (config.app.debug) {
+        if (this.elements.length === 0) {
             debug(`Cannot add class: no elements found`);
+            return this;
+        }
+        if (classNames.length === 0) {
+            debug(`Cannot add class: no class names provided`);
+            return this;
+        }
+        try {
+            this.elements.forEach(el => el.classList.add(...classNames));
+        } catch (e) {
+            debug(`Error adding class: ${e.message}`);
         }
         return this;
     }
@@ -71,10 +116,18 @@ export class DOM {
      * @example $.css({ backgroundColor: 'red', color: 'white' })
      */
     css(styles) {
-        if (this.element) {
-            Object.assign(this.element.style, styles);
-        } else if (config.app.debug) {
+        if (!this.element) {
             debug(`Cannot apply CSS: no element selected`);
+            return this;
+        }
+        if (!styles || typeof styles !== 'object') {
+            debug(`Cannot apply CSS: invalid styles object`);
+            return this;
+        }
+        try {
+            Object.assign(this.element.style, styles);
+        } catch (e) {
+            debug(`Error applying CSS: ${e.message}`);
         }
         return this;
     }
@@ -87,10 +140,22 @@ export class DOM {
      * @example $.on('click', () => console.log('clicked'))
      */
     on(event, handler) {
-        if (this.element) {
-            this.element.addEventListener(event, handler);
-        } else if (config.app.debug) {
+        if (!this.element) {
             debug(`Cannot attach event '${event}': no element selected`);
+            return this;
+        }
+        if (!event || typeof event !== 'string') {
+            debug(`Cannot attach event: invalid event type`);
+            return this;
+        }
+        if (typeof handler !== 'function') {
+            debug(`Cannot attach event '${event}': handler is not a function`);
+            return this;
+        }
+        try {
+            this.element.addEventListener(event, handler);
+        } catch (e) {
+            debug(`Error attaching event '${event}': ${e.message}`);
         }
         return this;
     }
@@ -102,10 +167,22 @@ export class DOM {
      * @returns {DOM} Returns this for method chaining
      */
     onAll(event, handler) {
-        if (this.elements.length > 0) {
-            this.elements.forEach(el => el.addEventListener(event, handler));
-        } else if (config.app.debug) {
+        if (this.elements.length === 0) {
             debug(`Cannot attach event '${event}': no elements found`);
+            return this;
+        }
+        if (!event || typeof event !== 'string') {
+            debug(`Cannot attach event: invalid event type`);
+            return this;
+        }
+        if (typeof handler !== 'function') {
+            debug(`Cannot attach event '${event}': handler is not a function`);
+            return this;
+        }
+        try {
+            this.elements.forEach(el => el.addEventListener(event, handler));
+        } catch (e) {
+            debug(`Error attaching event '${event}': ${e.message}`);
         }
         return this;
     }
@@ -116,10 +193,18 @@ export class DOM {
      * @returns {DOM} Returns this for method chaining
      */
     append(child) {
-        if (this.element && child instanceof Element) {
+        if (!this.element) {
+            debug(`Cannot append: no parent element selected`);
+            return this;
+        }
+        if (!child || !(child instanceof Element)) {
+            debug(`Cannot append: invalid child element`);
+            return this;
+        }
+        try {
             this.element.appendChild(child);
-        } else if (config.app.debug) {
-            debug(`Cannot append: invalid element or no parent selected`);
+        } catch (e) {
+            debug(`Error appending element: ${e.message}`);
         }
         return this;
     }

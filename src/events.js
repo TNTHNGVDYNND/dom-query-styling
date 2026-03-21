@@ -1,13 +1,33 @@
 /**
  * @fileoverview Event Handlers for DOM-Query Styling project.
- * Provides reusable event setup functions.
+ * Provides reusable event setup functions with input validation.
  * 
  * @module events
  */
 
 import { $ } from './dom.js';
 import { colors } from './styles.js';
-import { config } from './config.js';
+import { config, debug } from './config.js';
+
+/**
+ * Validates search input value.
+ * @param {string} value - Input value to validate
+ * @returns {{valid: boolean, error: string|null}} Validation result
+ */
+const validateSearchInput = (value) => {
+    if (!value) {
+        return { valid: true, error: null };
+    }
+    
+    if (value.length > config.validation.inputMaxLength) {
+        return { 
+            valid: false, 
+            error: `Search text too long (max ${config.validation.inputMaxLength} characters)` 
+        };
+    }
+    
+    return { valid: true, error: null };
+};
 
 /**
  * Sets up hover effects on a button element.
@@ -31,10 +51,16 @@ export const setupButtonHover = (btn) => {
 export const setupButtonClick = (btn, inputSelector = '.guess') => {
     btn.on('click', () => {
         const input = $(inputSelector).element;
-        if (input) {
-            alert(`Your number: ${input.value}`);
-            input.value = '';
+        if (!input) {
+            debug(`Button click: input element not found`);
+            return;
         }
+        if (!input.value.trim()) {
+            debug(`Button click: input is empty`);
+            return;
+        }
+        alert(`Your number: ${input.value}`);
+        input.value = '';
     });
 };
 
@@ -55,15 +81,38 @@ export const setupFoodItemHover = (item) => {
 /**
  * Sets up real-time search filtering for food items.
  * Filters menu items based on input text and shows "no results" message.
+ * Includes input validation and error handling.
  * @param {DOM} input - DOM instance of the search input
  * @param {string} [itemSelector='.food-item'] - Selector for items to filter
  * @returns {void}
- * @example setupSearchFilter($('.guess'))
+ * @example setupSearchFilter($('#search-input'))
  */
 export const setupSearchFilter = (input, itemSelector = '.food-item') => {
+    if (!input || !input.element) {
+        debug(`setupSearchFilter: invalid input DOM instance`);
+        return;
+    }
+    
     input.on('input', () => {
-        const searchTerm = input.element.value.toLowerCase().trim();
+        const rawValue = input.element.value;
+        const validation = validateSearchInput(rawValue);
+        
+        if (!validation.valid) {
+            input.element.classList.add('invalid-input');
+            debug(validation.error);
+            return;
+        }
+        
+        input.element.classList.remove('invalid-input');
+        
+        const searchTerm = rawValue.toLowerCase().trim();
         const items = document.querySelectorAll(itemSelector);
+        
+        if (items.length === 0) {
+            debug(`No items found with selector: ${itemSelector}`);
+            return;
+        }
+        
         let matchCount = 0;
 
         items.forEach(item => {
