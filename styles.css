@@ -1,0 +1,93 @@
+.body-dark {
+    background-color: #2B2422;
+    font-family: Roboto, sans-serif;
+}
+
+.title-hero {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 650;
+    color: #DC2743;
+}
+
+.category-title {
+    font-style: italic;
+    font-size: 2rem;
+    border-bottom: 1px solid black;
+}
+
+.menu-layout {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.menu-category-card {
+    min-width: 300px;
+    height: 10rem;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.food-item {
+    margin-top: 1rem;
+    list-style-type: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.food-item:hover {
+    color: #DC2743;
+    cursor: pointer;
+}
+
+.footer-card {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: rgba(127, 111, 107, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: #DC2743;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #FF0000;
+}
+
+.input-styled {
+    margin: 15px 0;
+    padding: 10px;
+    display: block;
+    width: 25%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.section-padded {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.section-starters {
+    background-color: #ffb6c1;
+}
+
+.section-mains {
+    background-color: #98fb98;
+}
+
+.section-desserts {
+    background-color: #add8e6;
+}
