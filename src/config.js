@@ -35,13 +35,14 @@ export const config = {
         body: 'body',
         title: 'h1',
         main: 'main',
+        mainContent: '#main-content',
         sections: 'section',
         footer: 'footer',
         foodItems: '.food-item',
         categories: '.category',
         menuCategories: '.menu-category',
         button: '.btn-check',
-        input: '.guess',
+        input: '#search-input',
         noResults: '.no-results'
     },
     events: {

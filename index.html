@@ -7,36 +7,51 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 class="title" >Delicious Carb Indulgence</h1>
-    <main class="main">
-    <section>
-        <h3 class="category">Starters</h3>
-        <ul class="menu-category">
-            <li class="food-item">Item-1</li>
-            <li class="food-item">Item-2</li>
-            <li class="food-item">Item-3</li>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <h1 class="title">Delicious Carb Indulgence</h1>
+    </header>
+    
+    <main id="main-content" class="main" role="main">
+    <section aria-labelledby="starters-heading">
+        <h2 id="starters-heading" class="category">Starters</h2>
+        <ul class="menu-category" role="list">
+            <li class="food-item" role="listitem">Item-1</li>
+            <li class="food-item" role="listitem">Item-2</li>
+            <li class="food-item" role="listitem">Item-3</li>
         </ul>
     </section>
-    <section>
-        <h3 class="category">Main-Menu</h3>
-        <ul class="menu-category">
-            <li class="food-item">Item-1</li>
-            <li class="food-item">Item-2</li>
-            <li class="food-item">Item-3</li>
+    <section aria-labelledby="mains-heading">
+        <h2 id="mains-heading" class="category">Main-Menu</h2>
+        <ul class="menu-category" role="list">
+            <li class="food-item" role="listitem">Item-1</li>
+            <li class="food-item" role="listitem">Item-2</li>
+            <li class="food-item" role="listitem">Item-3</li>
         </ul>
     </section>
-    <section>
-        <h3 class="category">Deserts</h3>
-        <ul class="menu-category">
-            <li class="food-item">Item-1</li>
-            <li class="food-item">Item-2</li>
-            <li class="food-item">Item-3</li>
+    <section aria-labelledby="desserts-heading">
+        <h2 id="desserts-heading" class="category">Desserts</h2>
+        <ul class="menu-category" role="list">
+            <li class="food-item" role="listitem">Item-1</li>
+            <li class="food-item" role="listitem">Item-2</li>
+            <li class="food-item" role="listitem">Item-3</li>
         </ul>
     </section>
     </main>
-    <footer>
-        <input type="search" class="guess" placeholder="Search menu items..." aria-label="Search menu items" />
-        <button class="btn-check" aria-label="Check number">Click me</button>
+    
+    <footer role="contentinfo">
+        <label for="search-input" class="visually-hidden">Search menu items</label>
+        <input 
+            type="search" 
+            id="search-input"
+            class="guess" 
+            placeholder="Search menu items..." 
+            aria-label="Search menu items"
+            aria-describedby="search-help"
+        />
+        <span id="search-help" class="visually-hidden">Type to filter menu items in real-time</span>
+        <button class="btn-check" aria-label="Display your entered number">Click me</button>
     </footer>
 
     <script type="module" src="src/main.js"></script>

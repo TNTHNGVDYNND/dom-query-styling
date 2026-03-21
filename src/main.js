@@ -1,6 +1,6 @@
 /**
  * @fileoverview Main Entry Point for DOM-Query Styling project.
- * v2.2 - JavaScript Animations & Transitions
+ * v2.3 - Accessibility Foundation
  * 
  * @module main
  */
@@ -101,5 +101,21 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             $(section).slideIn(config.animations.slideIn);
         }, index * 150);
+    });
+});
+
+// ============================================
+// v2.3: ACCESSIBILITY - KEYBOARD NAVIGATION
+// ============================================
+
+// Ensure food items are keyboard accessible
+$$(config.selectors.foodItems).forEach(item => {
+    item.setAttribute('tabindex', '0');
+    
+    item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            item.click();
+        }
     });
 });
