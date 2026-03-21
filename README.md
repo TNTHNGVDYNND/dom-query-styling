@@ -25,10 +25,10 @@ A dynamic restaurant menu where food items appear styled, change color on hover,
 
 ## The Learning Journey
 
-This project evolves through versions, each teaching a new concept:
+This project evolves through versions, each teaching a new concept. See the `v1` branch to view the original starting point - 116 lines of JavaScript with all inline styles.
 
 ### v1.1 - Starting Point
-Everything in one file with inline styles.
+Everything in one file with inline styles. See branch `v1` to explore the original code.
 
 ### v1.2 - CSS Classes
 Move styles to CSS classes. Learn `.classList.add()`.
@@ -208,3 +208,11 @@ No frameworks or libraries - just pure vanilla JavaScript!
 ## For Developers
 
 See [PLAN.md](./PLAN.md) for the complete technical roadmap and implementation details.
+
+## Branches
+
+| Branch | Description |
+|--------|-------------|
+| `main` | Current version (v2.0) - fully refactored |
+| `v1` | Original starting point - single file with inline styles |
+| `v1.4` | DOM Class (OOP) version |
