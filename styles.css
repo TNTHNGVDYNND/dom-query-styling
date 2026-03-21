@@ -91,3 +91,7 @@
 .section-desserts {
     background-color: #add8e6;
 }
+
+.footer-active {
+    border: 2px solid #DC2743;
+}
