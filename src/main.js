@@ -1,7 +1,8 @@
-// v1.5 - ES Modules: Main Entry Point
+// v1.6 - Query & Style Enhancements: Main Entry Point
 
-import $, { DOM } from './dom.js';
+import $, { DOM, $$ } from './dom.js';
 import * as styles from './styles.js';
+import { applyStyles, toggleClass } from './styles.js';
 import { setupButtonHover, setupButtonClick } from './events.js';
 import { newMenuItem, pageTitle, sectionColors } from './data.js';
 
@@ -51,3 +52,19 @@ setupButtonClick(btnCheck);
 
 document.title = pageTitle;
 $('.title').element.textContent = pageTitle;
+
+// ============================================
+// v1.6: DEMONSTRATE NEW UTILITIES
+// ============================================
+
+// $$ query shorthand - returns raw NodeList
+$$('.food-item').forEach((item, index) => {
+    item.textContent = `$$ Item ${index + 1}`;
+});
+
+// applyStyles - CSS-in-JS utility
+applyStyles($$('section'), { transition: 'transform 0.3s ease' });
+
+// toggleClass - class toggling utility
+const footerEl = $('footer').element;
+toggleClass(footerEl, 'footer-active');

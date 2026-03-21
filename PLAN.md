@@ -1,9 +1,12 @@
 # DOM-Query Styling Refactoring Plan
 
 ## Project Overview
-A vanilla JavaScript DOM manipulation and styling project for learning purposes.  
-**Current:** v1.1 (basic inline styles, single file)  
-**Goal:** v2.0 (clean architecture, modular structure)
+A vanilla JavaScript DOM manipulation and styling project for learning purposes, focused on:
+- **DOM Query**: Mastering `querySelector`, `querySelectorAll`, and traversal
+- **DOM Styling**: Dynamic style manipulation, class toggling, and CSS-in-JS
+
+**Current:** v1.6 (Query & Style Enhancements)  
+**Goal:** v2.0 (clean architecture, polish & patterns)
 
 ---
 
@@ -19,6 +22,8 @@ v1.3 ← Helper Functions (DRY) ✅
 v1.4 ← DOM Class (OOP) ✅
     ↓
 v1.5 ← ES Modules (Organization) ✅
+    ↓
+v1.6 ← Query & Style Enhancements ✅
     ↓
 v2.0 ← Polish & Patterns
 ```
@@ -118,6 +123,45 @@ src/
 - `export const` vs `export default`
 - `type="module"` in script tag
 - Separation by feature/concern
+
+---
+
+## v1.6: Query & Style Enhancements ✅
+
+### Learning Goals
+- DOM Query API (`querySelectorAll`, `querySelector`)
+- Query selector best practices
+- Styling utilities for rapid development
+- Animation and transition helpers
+
+### Implemented Additions
+```javascript
+// src/dom.js - Query shorthand (ALIGNED WITH PROJECT NAME "dom-query")
+export const $$ = (selector) => document.querySelectorAll(selector);
+
+// src/styles.js - Style utility functions
+export const applyStyles = (elements, styleObject) => {
+    elements.forEach(el => Object.assign(el.style, styleObject));
+    return elements;
+};
+
+export const toggleClass = (element, className) => {
+    element.classList.toggle(className);
+    return element;
+};
+```
+
+### Benefits
+- `$$` selector matches project naming convention "dom-query"
+- Direct NodeList access for iteration without wrapping
+- Style utilities for rapid CSS-in-JS development
+- Better alignment with project focus on DOM querying and styling
+
+### Files Changed
+- `src/dom.js` - Added `$$` export
+- `src/styles.js` - Added `applyStyles()` and `toggleClass()` utilities
+- `src/main.js` - Demonstrates new utilities
+- `styles.css` - Added `.footer-active` class
 
 ---
 

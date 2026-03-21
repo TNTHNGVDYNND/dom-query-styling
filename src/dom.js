@@ -1,4 +1,4 @@
-// v1.5 - ES Modules: DOM Utility Class
+// v1.6 - Query & Style Enhancements: DOM Utility Class
 
 export class DOM {
     constructor(selector) {
@@ -46,4 +46,5 @@ export class DOM {
 }
 
 export const $ = (selector) => new DOM(selector);
+export const $$ = (selector) => document.querySelectorAll(selector);
 export default $;
