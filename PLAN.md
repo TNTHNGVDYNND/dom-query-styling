@@ -12,13 +12,13 @@ A vanilla JavaScript DOM manipulation and styling project for learning purposes.
 ```
 v1.1 (START)
     ↓
-v1.2 ← CSS Classes (Semantic)
+v1.2 ← CSS Classes (Semantic) ✅
     ↓
-v1.3 ← Helper Functions (DRY)
+v1.3 ← Helper Functions (DRY) ✅
     ↓
-v1.4 ← DOM Class (OOP)
+v1.4 ← DOM Class (OOP) ✅
     ↓
-v1.5 ← ES Modules (Organization)
+v1.5 ← ES Modules (Organization) ✅
     ↓
 v2.0 ← Polish & Patterns
 ```
@@ -96,22 +96,28 @@ const $ = (selector) => new DOM(selector);
 
 ---
 
-## v1.5: ES Modules (Organization)
+## v1.5: ES Modules (Organization) ✅
 
 ### Learning Goals
 - ES6 Modules (import/export)
 - Module separation by concern
-- default vs named exports
+- Named vs default exports
 
-### Planned File Structure
+### File Structure
 ```
 src/
-├── dom.js          (DOM utility class)
-├── styles.js       (CSS class mappings)
-├── events.js      (Event handlers)
-├── data.js        (Dynamic data/config)
-└── main.js        (Entry point)
+├── dom.js          (DOM utility class)  - default + named export
+├── styles.js       (CSS class mappings)   - named exports
+├── events.js      (Event handlers)        - named exports
+├── data.js        (Dynamic data/config)   - named exports
+└── main.js        (Entry point)           - imports all
 ```
+
+### Key Concepts Learned
+- `import { x }` vs `import x default`
+- `export const` vs `export default`
+- `type="module"` in script tag
+- Separation by feature/concern
 
 ---
 
