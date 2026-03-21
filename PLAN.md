@@ -5,8 +5,8 @@ A vanilla JavaScript DOM manipulation and styling project for learning purposes,
 - **DOM Query**: Mastering `querySelector`, `querySelectorAll`, and traversal
 - **DOM Styling**: Dynamic style manipulation, class toggling, and CSS-in-JS
 
-**Current:** v1.6 (Query & Style Enhancements)  
-**Goal:** v2.0 (clean architecture, polish & patterns)
+**Current:** v2.0 (Polish & Patterns) ✅  
+**Goal:** Complete - Clean architecture, configuration-driven, well-documented codebase
 
 ---
 
@@ -25,7 +25,7 @@ v1.5 ← ES Modules (Organization) ✅
     ↓
 v1.6 ← Query & Style Enhancements ✅
     ↓
-v2.0 ← Polish & Patterns
+v2.0 ← Polish & Patterns ✅
 ```
 
 ---
@@ -165,14 +165,74 @@ export const toggleClass = (element, className) => {
 
 ---
 
-## v2.0: Polish & Patterns
+## v2.0: Polish & Patterns ✅
 
 ### Learning Goals
 - Configuration-driven approach
 - Clean architecture principles
 - Best practices
-
-### Planned Changes
-- Centralized config.js
-- Better error handling
 - JSDoc documentation
+
+### Implemented Changes
+- Centralized `src/config.js` with selectors, events, app settings
+- Better error handling with debug mode in DOM class
+- JSDoc documentation on all modules and exports
+
+### File Structure
+```
+src/
+├── config.js       (Centralized configuration) - named exports
+├── dom.js          (DOM utility class)  - default + named export
+├── styles.js       (CSS class mappings + utilities) - named exports
+├── events.js       (Event handlers) - named exports
+├── data.js         (Dynamic data/config) - named exports
+└── main.js         (Entry point) - imports all
+```
+
+### Files Created
+- `src/config.js` - Centralized configuration with selectors and debug utility
+
+### Files Updated
+- `src/dom.js` - Added JSDoc, error handling with debug logging
+- `src/styles.js` - Added JSDoc, null check in toggleClass
+- `src/events.js` - Added JSDoc, null check in setupButtonClick
+- `src/data.js` - Added JSDoc documentation
+- `src/main.js` - Uses config.selectors, updated documentation
+
+### Implementation Details
+
+#### 1. Centralized Config (config.js)
+```javascript
+export const config = {
+    app: {
+        title: 'The Menu',
+        debug: false
+    },
+    selectors: {
+        body: 'body',
+        title: 'h1',
+        main: 'main',
+        sections: 'section',
+        footer: 'footer',
+        foodItems: '.food-item',
+        categories: '.category',
+        menuCategories: '.menu-category',
+        button: '.btn-check',
+        input: '.guess'
+    },
+    events: {
+        button: ['mouseenter', 'mouseleave', 'click'],
+        foodItem: ['mouseenter', 'mouseleave']
+    }
+};
+```
+
+#### 2. Error Handling
+- Null checks for DOM queries
+- Graceful degradation
+- Console warnings in debug mode
+
+#### 3. JSDoc Documentation
+- Document all exports with @param, @returns
+- Type definitions
+- Usage examples
