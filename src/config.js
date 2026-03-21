@@ -61,6 +61,12 @@ export const config = {
         slideIn: 300,
         staggerDuration: 300,
         staggerOffset: 50
+    },
+    responsive: {
+        mobile: 375,
+        tablet: 768,
+        desktop: 1024,
+        large: 1440
     }
 };
 

@@ -25,9 +25,13 @@
 
 .menu-category-card {
     min-width: 300px;
-    height: 10rem;
+    min-height: 10rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
     border-radius: 5px;
     border: 1px solid black;
+    box-sizing: border-box;
 }
 
 .food-item {
@@ -246,4 +250,169 @@
 .food-item:focus-visible {
     background-color: rgba(220, 39, 67, 0.2);
     outline: 3px solid #FFB74D;
+}
+
+/* v2.4: Responsive Design Styles */
+
+/* ============================================
+   BASE STYLES (Mobile First - 375px and below)
+   ============================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 10px;
+    margin: 0;
+}
+
+.title-hero {
+    font-size: 1.5rem;
+}
+
+.category-title {
+    font-size: 1.3rem;
+}
+
+.menu-category-card {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    min-height: 8rem;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.food-item {
+    padding: 10px 5px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.section-padded {
+    padding: 15px;
+}
+
+.input-styled {
+    width: 100%;
+    max-width: 300px;
+    min-height: 44px;
+}
+
+.btn-primary {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.footer-card {
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Touch-friendly states */
+.food-item:active {
+    background-color: rgba(220, 39, 67, 0.1);
+    transform: scale(0.98);
+}
+
+.btn-primary:active {
+    background-color: #FF0000;
+    transform: scale(0.95);
+}
+
+/* ============================================
+   TABLET (768px and above)
+   ============================================ */
+
+@media screen and (min-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    
+    .title-hero {
+        font-size: 2rem;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+    }
+    
+    .menu-category-card {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+    
+    .section-padded {
+        padding: 20px;
+    }
+    
+    .input-styled {
+        width: 50%;
+    }
+    
+    .footer-card {
+        flex-direction: row;
+    }
+}
+
+/* ============================================
+   DESKTOP (1024px and above)
+   ============================================ */
+
+@media screen and (min-width: 1024px) {
+    body {
+        padding: 30px 50px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    .title-hero {
+        font-size: 2.5rem;
+    }
+    
+    .category-title {
+        font-size: 2rem;
+    }
+    
+    .menu-category-card {
+        width: 30%;
+        min-width: 300px;
+        min-height: 10rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+    
+    .section-padded {
+        padding: 25px;
+    }
+    
+    .input-styled {
+        width: 25%;
+    }
+}
+
+/* ============================================
+   LARGE DESKTOP (1440px and above)
+   ============================================ */
+
+@media screen and (min-width: 1440px) {
+    body {
+        padding: 40px 80px;
+    }
+    
+    .title-hero {
+        font-size: 3rem;
+    }
+    
+    .menu-category-card {
+        min-width: 350px;
+        min-height: 12rem;
+        height: auto;
+    }
 }

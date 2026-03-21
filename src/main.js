@@ -1,6 +1,6 @@
 /**
  * @fileoverview Main Entry Point for DOM-Query Styling project.
- * v2.3 - Accessibility Foundation
+ * v2.4 - Responsive Design Polish
  * 
  * @module main
  */
