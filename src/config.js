@@ -41,11 +41,18 @@ export const config = {
         categories: '.category',
         menuCategories: '.menu-category',
         button: '.btn-check',
-        input: '.guess'
+        input: '.guess',
+        noResults: '.no-results'
     },
     events: {
         button: ['mouseenter', 'mouseleave', 'click'],
-        foodItem: ['mouseenter', 'mouseleave']
+        foodItem: ['mouseenter', 'mouseleave'],
+        search: ['input', 'clear']
+    },
+    search: {
+        placeholder: 'Search menu items...',
+        minLength: 0,
+        highlightClass: 'search-match'
     }
 };
 

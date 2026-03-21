@@ -95,3 +95,30 @@
 .footer-active {
     border: 2px solid #DC2743;
 }
+
+/* v2.1: Search & Filter Styles */
+.hidden {
+    display: none !important;
+}
+
+.search-match {
+    background-color: rgba(220, 39, 67, 0.1);
+    font-weight: 500;
+}
+
+.no-results {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.input-styled {
+    transition: border-color 0.3s ease;
+}
+
+.input-styled:focus {
+    border-color: #DC2743;
+    outline: none;
+}

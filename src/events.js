@@ -7,6 +7,7 @@
 
 import { $ } from './dom.js';
 import { colors } from './styles.js';
+import { config } from './config.js';
 
 /**
  * Sets up hover effects on a button element.
@@ -48,5 +49,44 @@ export const setupFoodItemHover = (item) => {
     item.on('mouseenter', () => item.css({ color: colors.primary }));
     item.on('mouseleave', () => {
         item.css({ color: 'black', backgroundColor: 'transparent' });
+    });
+};
+
+/**
+ * Sets up real-time search filtering for food items.
+ * Filters menu items based on input text and shows "no results" message.
+ * @param {DOM} input - DOM instance of the search input
+ * @param {string} [itemSelector='.food-item'] - Selector for items to filter
+ * @returns {void}
+ * @example setupSearchFilter($('.guess'))
+ */
+export const setupSearchFilter = (input, itemSelector = '.food-item') => {
+    input.on('input', () => {
+        const searchTerm = input.element.value.toLowerCase().trim();
+        const items = document.querySelectorAll(itemSelector);
+        let matchCount = 0;
+
+        items.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            const matches = text.includes(searchTerm);
+
+            if (matches) {
+                item.classList.remove('hidden');
+                item.classList.add(config.search.highlightClass);
+                matchCount++;
+            } else {
+                item.classList.add('hidden');
+                item.classList.remove(config.search.highlightClass);
+            }
+        });
+
+        const noResultsEl = document.querySelector(config.selectors.noResults);
+        if (noResultsEl) {
+            if (matchCount === 0 && searchTerm.length > 0) {
+                noResultsEl.classList.remove('hidden');
+            } else {
+                noResultsEl.classList.add('hidden');
+            }
+        }
     });
 };

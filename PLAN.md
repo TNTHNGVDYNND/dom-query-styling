@@ -7,7 +7,7 @@ A vanilla JavaScript DOM manipulation and styling project for learning purposes,
 - **DOM Query**: Mastering `querySelector`, `querySelectorAll`, and traversal
 - **DOM Styling**: Dynamic style manipulation, class toggling, and CSS-in-JS
 
-**Current:** v2.1 (Search & Filter) ⧗ TODO  
+**Current:** v2.1 (Search & Filter) ✅  
 **Goal:** Complete - Production-ready, accessible, responsive codebase
 
 ---
@@ -29,7 +29,7 @@ v1.6 ← Query & Style Enhancements ✅
     ↓
 v2.0 ← Polish & Patterns ✅
     ↓
-v2.1 ← Search & Filter ⧗ TODO
+v2.1 ← Search & Filter ✅
     ↓
 v2.2 ← JavaScript Animations ⧗ TODO
     ↓

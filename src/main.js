@@ -1,6 +1,6 @@
 /**
  * @fileoverview Main Entry Point for DOM-Query Styling project.
- * v2.0 - Polish & Patterns: Configuration-driven architecture.
+ * v2.1 - Enhanced Interactivity: Search & Filter
  * 
  * @module main
  */
@@ -8,7 +8,7 @@
 import $, { DOM, $$ } from './dom.js';
 import * as styles from './styles.js';
 import { applyStyles, toggleClass } from './styles.js';
-import { setupButtonHover, setupButtonClick } from './events.js';
+import { setupButtonHover, setupButtonClick, setupSearchFilter } from './events.js';
 import { newMenuItem, pageTitle } from './data.js';
 import { config } from './config.js';
 
@@ -53,6 +53,18 @@ $(newMenuItem.parentSelector).append(
 setupButtonClick(btnCheck);
 
 // ============================================
+// v2.1: SEARCH & FILTER
+// ============================================
+
+const searchInput = $(config.selectors.input);
+setupSearchFilter(searchInput);
+
+// Create "no results" message element
+const noResultsMsg = DOM.create('p', 'no-results', 'No items match your search.');
+noResultsMsg.classList.add('hidden');
+$('main').element.appendChild(noResultsMsg);
+
+// ============================================
 // DYNAMIC UPDATES
 // ============================================
 
@@ -60,7 +72,7 @@ document.title = pageTitle;
 $('.title').element.textContent = pageTitle;
 
 // ============================================
-// v1.6: DEMONSTRATE NEW UTILITIES
+// v2.1: UTILITY DEMONSTRATION
 // ============================================
 
 // $$ query shorthand - returns raw NodeList
