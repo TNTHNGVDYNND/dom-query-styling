@@ -1,6 +1,6 @@
 /**
  * @fileoverview Main Entry Point for DOM-Query Styling project.
- * v2.1 - Enhanced Interactivity: Search & Filter
+ * v2.2 - JavaScript Animations & Transitions
  * 
  * @module main
  */
@@ -86,3 +86,20 @@ applyStyles($$(config.selectors.sections), { transition: 'transform 0.3s ease' }
 // toggleClass - class toggling utility
 const footerEl = $(config.selectors.footer).element;
 toggleClass(footerEl, 'footer-active');
+
+// ============================================
+// v2.2: ENTRANCE ANIMATIONS
+// ============================================
+
+// Staggered entrance animation for food items on page load
+window.addEventListener('DOMContentLoaded', () => {
+    const foodItems = $$(config.selectors.foodItems);
+    foodItems.stagger(config.animations.staggerDuration, config.animations.staggerOffset);
+    
+    // Slide in sections with delay
+    $$(config.selectors.sections).forEach((section, index) => {
+        setTimeout(() => {
+            $(section).slideIn(config.animations.slideIn);
+        }, index * 150);
+    });
+});

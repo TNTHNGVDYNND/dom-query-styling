@@ -53,6 +53,13 @@ export const config = {
         placeholder: 'Search menu items...',
         minLength: 0,
         highlightClass: 'search-match'
+    },
+    animations: {
+        fadeIn: 300,
+        fadeOut: 300,
+        slideIn: 300,
+        staggerDuration: 300,
+        staggerOffset: 50
     }
 };
 
